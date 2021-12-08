@@ -19,6 +19,19 @@ jobs:
           distribution: 'zulu'
           java-version: 8
 
+      - name : setting env-var application-aws
+        uses : microsoft/variable-substitution@v1
+        with :
+          files : 'src/main/resources/*.yml'
+        env :
+          BUCKET_NAME : ${{ secrets.BUCKET_NAME }}
+          ACCESS_KEY : ${{ secrets.AWS_ACCESS_KEY_ID }}
+          SECRET_KEY : ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DATASOURCE_URL : ${{ secrets.DATASOURCE_URL }}
+          USERNAME : ${{ secrets.DATASOURCE_USERNAME }}
+          PASSWORD : ${{ secrets.DATASOURCE_PASSWORD }}
+          JWT_SECRET : ${{ secrets.JWT_SECRET }}
+
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
         shell: bash
