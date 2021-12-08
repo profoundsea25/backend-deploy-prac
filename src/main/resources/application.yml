@@ -33,4 +33,4 @@ spring:
 #          descriptor:
 #            sql: trace
 jwt:
-  secret: ${JWT_SECRET}
+  secret:
