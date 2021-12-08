@@ -49,7 +49,6 @@ dependencies {
 
 }
 
-
 ext {
     set('snippetsDir', file("build/generated-snippets"))
 }
